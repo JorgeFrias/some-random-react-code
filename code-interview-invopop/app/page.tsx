@@ -82,9 +82,9 @@ export default function Home() {
           variation={PriceDisplayTraitVariation.Medium}
         />
 
-        <div style={{ fontSize: "0.5rem" }}>
+        <div style={{ fontSize: "2rem" }}>
           <PriceDisplayComponent
-            price={1999}
+            price={-1999}
             currency={Currency.USD}
             variation={PriceDisplayTraitVariation.Inherited}
           />
