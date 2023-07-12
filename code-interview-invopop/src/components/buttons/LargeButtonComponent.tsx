@@ -25,7 +25,10 @@ const getButtonStyle = (role: ButtonRole) => {
   }
 };
 
-const PrimaryButton: React.FC<Props> = ({ role, children, onClick }) => {
+/**
+ * Primary button component.
+ */
+const LargeButton: React.FC<Props> = ({ role, children, onClick }) => {
   return (
     <button
       onClick={onClick}
@@ -38,4 +41,4 @@ const PrimaryButton: React.FC<Props> = ({ role, children, onClick }) => {
   );
 };
 
-export { ButtonRole, PrimaryButton };
+export { ButtonRole, LargeButton };

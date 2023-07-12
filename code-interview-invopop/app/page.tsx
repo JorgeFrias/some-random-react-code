@@ -6,7 +6,7 @@ import styles from "./page.module.css";
 // Tmp import
 import {
   ButtonRole,
-  PrimaryButton,
+  LargeButton,
 } from "../src/components/buttons/LargeButtonComponent";
 
 export default function Home() {
@@ -15,9 +15,9 @@ export default function Home() {
   return (
     <main>
       <div>
-        <PrimaryButton role={ButtonRole.Primary} onClick={tmpOnClick}>
+        <LargeButton role={ButtonRole.Primary} onClick={tmpOnClick}>
           Buy now
-        </PrimaryButton>
+        </LargeButton>
       </div>
     </main>
   );
