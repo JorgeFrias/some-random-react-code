@@ -1,0 +1,28 @@
+@import "../../styles/ColorPallete.module.scss";
+@import "../../styles/TextStyles.module.scss";
+
+.subheading {
+  color: $color-subheading;
+  font-family: $font-family;
+  text-transform: uppercase;
+
+  &_primary {
+    @extend .subheading;
+    
+    font-size: 0.75rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 1rem;
+    letter-spacing: -0.008rem;  
+  }
+
+  &_secondary {
+    @extend .subheading;
+
+    font-size: 0.625rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 0.625rem;
+    letter-spacing: -0.006rem;
+  }
+}

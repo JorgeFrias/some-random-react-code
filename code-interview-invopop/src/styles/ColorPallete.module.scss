@@ -15,7 +15,7 @@ $color-body-annotations: #62628A;
 /// Prices, quantities and other numeric values
 $color-body-numerals: #000000;
 /// Column headers
-$color-heading: #A6A7B3;
+$color-subheading: #A6A7B3;
 /// Annotations under labels
 $color-caption: #A6A7B3;
 // - Panels definitions. Side panels that have a secondary background color
@@ -57,7 +57,7 @@ $color-border-image: #CACAD1;
     color-body: $color-body;
     color-body-annotations: $color-body-annotations;
     color-body-numerals: $color-body-numerals;
-    color-heading: $color-heading;
+    color-subheading: $color-subheading;
     color-caption: $color-caption;
     color-side-panel-title: $color-side-panel-title;
     color-side-panel-body: $color-side-panel-body;

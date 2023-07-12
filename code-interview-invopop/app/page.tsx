@@ -16,6 +16,7 @@ import {
 
 import { CloseButton } from "../src/components/buttons/CloseButtonComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
+import { SubheadingComponent, SubheadingRole } from "@/components/textElements/SubHeadingComponent";
 
 export default function Home() {
   const tmpOnClick = () => {};
@@ -55,6 +56,14 @@ export default function Home() {
         </InlineButton>
 
         <CloseButton onClick={tmpOnClick} backgroundOnHover={true} />
+
+        <SubheadingComponent role={SubheadingRole.Primary}>
+          Subheading Primary
+        </SubheadingComponent>
+
+        <SubheadingComponent role={SubheadingRole.Secondary}>
+          Subheading Secondary
+        </SubheadingComponent>
       </div>
     </main>
   );
