@@ -3,20 +3,45 @@
 .button_inline {
     color: $color-button-inline;
     font-family: Avenir;
-    font-size: 1.25rem;     // font-size: 20px; 1rem = 16px
+    font-size: 1.25rem;             // font-size: 20px; 1rem = 16px
     font-style: normal;
     font-weight: 350;
-    // line-height: 1.56rem;   // line-height: 25px; 1rem = 16px
+    // line-height: 1.56rem;        // line-height: 25px; 1rem = 16px
 
     // Remove the default button styles
     background-color: transparent;
     border: none;
     outline: none;
 
+    // Layout
+    justify-content: center;
+    display: flex;
+    padding: 0.5rem;
+
+    & > svg {
+        fill: $color-button-inline; // SVGs inside the button
+    }
+
     &:hover {
         color: darken($color-button-inline, 20%);      // Way darker than when it's a button with background, but it's perceived as the same color
         transition: background-color 0.2s ease-in-out;
     }
+
+    // MARK: - Role variations
+    &_secondary {
+        @extend .button_inline;
+        color: $color-action-secondary;
+        
+        & > svg {
+            fill: $color-action-secondary; // SVGs inside the button
+        }    
+        
+        &:hover {
+            color: darken($color-action-secondary, 20%);
+            transition: background-color 0.2s ease-in-out;
+        }
+    }
+
 }
 
 /// Adds a hover region to the button. The hover region is a circle that surrounds the button and is used communicate the area where the user can click.
