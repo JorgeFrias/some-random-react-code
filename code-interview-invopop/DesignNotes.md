@@ -2,6 +2,7 @@
 
 ## General Notes
 - I'm using `rem` units for the font sizes, so the design better adapts to different screen sizes (good practice). So I converted most `px` values to `rem` values assuming a base font size of 16px (1rem = 16px).
+- I decided to add Bootstrap to make the design responsive, as it's a good practice to use a framework for this purpose, and it's the one I'm most familiar with.
 
 ## Buttons
 ### Large Button Component

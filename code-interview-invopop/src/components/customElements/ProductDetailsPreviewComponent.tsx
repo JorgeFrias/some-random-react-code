@@ -1,50 +1,66 @@
 "use client";
 
+// - Libraries
 import React from "react";
+import Image from "next/image";
+import Link from "next/link";
+// - Stylesheets
 import styles from "./ProductDetailsPreviewComponent.module.scss";
-import { Currency } from "@/models/currency";
+import "bootstrap/dist/css/bootstrap.min.css"; // Import bootstrap CSS
+import { Product } from "@/models/product";
+// - Components import
+import {
+  SubheadingComponent,
+  SubheadingRole,
+} from "../textElements/SubHeadingComponent";
+import {
+  InlineButton,
+  ButtonRole as InlineButtonRole,
+} from "../buttons/InlineButtonComponent";
+
 
 interface Props {
-  price: number;
-  currency: Currency;
+  product: Product;
 }
 
 /**
- * Defines a standard element that renders price, with different visual hierarchy options.
- * @param price The price to display, in cents (e.g. 1000 = 10.00EUR)
- * @param currency The currency to display
- * @param role The visual hierarchy of the element
- * 
- * If the price is a whole number, the .00 will be removed, as per the design.
+ * Previews a product with a small picture, name and the product code.
+ * @param product The product to preview.
+ *
+ * Both the image and the product name are clickable and will open the product page in a new tab. The product code is not clickable, as the user might find infuriating if they try to copy the reference.
  */
-const PriceDisplayComponent: React.FC<Props> = ({ price, currency, variation }) => {
-  let formattedPrice: string;
-  // Convert price to decimal and format to 2 decimal places.
-  // + Check if the formatted price is a whole number and remove the .00 if it is
-  if (Number.isInteger(price / 100)) {
-    formattedPrice = (price / 100).toFixed(0);
-  } else {
-    formattedPrice = (price / 100).toFixed(2);
-  }
-
+const ProductDetailsPreviewComponent: React.FC<Props> = ({ product }) => {
   return (
-    <p className={getClassForRole(variation)}>
-      {currency === Currency.EUR ? (
-        <>
-          {formattedPrice} {currency}
-        </>
-      ) : (
-        <>
-          {currency}
-          {formattedPrice}
-        </>
-      )}
-    </p>
+    <div className={styles.product_preview}>
+      <div className="d-flex align-items-center">
+        <div className="">
+          <Link href={product.productURL()}>
+            <Image
+              src={product.getImageURL().toString()}
+              width={72}
+              height={72}
+              alt={`Picture of the product: ${product.getName()}`}
+            />
+          </Link>
+        </div>
+        <div className={`d-inline ${styles.text_block}`}>
+          <InlineButton
+            role={InlineButtonRole.Primary}
+            onClick={() => {
+              window.open(product.productURL(), "_blank");
+            }}
+          >
+            {product.getName()}
+          </InlineButton>
+
+          <SubheadingComponent role={SubheadingRole.Secondary}>
+            <span className={styles.lowercase}>product code </span>
+            {product.getCode()}
+          </SubheadingComponent>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export {
-  PriceDisplayComponent,
-  TraitVariation as PriceDisplayTraitVariation,
-  Currency,
-};
+export { ProductDetailsPreviewComponent };

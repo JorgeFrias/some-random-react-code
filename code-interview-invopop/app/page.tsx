@@ -27,6 +27,9 @@ import {
 
 import { Currency } from "@/models/currency";
 
+import { Product } from "@/models/product";
+import { ProductDetailsPreviewComponent } from "@/components/customElements/ProductDetailsPreviewComponent";
+
 export default function Home() {
   const tmpOnClick = () => {};
 
@@ -90,6 +93,18 @@ export default function Home() {
             variation={PriceDisplayTraitVariation.Inherited}
           />
         </div>
+
+        <ProductDetailsPreviewComponent
+          product={
+            new Product(
+              "Some Shirt",
+              "TEST_CODE",
+              1000,
+              Currency.EUR,
+              "/img/shirt.png"
+            )
+          }
+        />
       </div>
     </main>
   );
