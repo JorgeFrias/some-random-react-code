@@ -1,13 +1,14 @@
 "use client";
 
 import React from "react";
-import styles from "./InlineButtonComponent.module.scss";
 import { InlineButton, ButtonRole } from "./InlineButtonComponent";
 
 interface Props {
   backgroundOnHover?: boolean;
   onClick: () => void;
 }
+
+// TODO: This component could be made reusable, by passing the icon and expected size as props (the size could be built from an enum to be consistent across the code).
 
 /**
  * Defines a standard close button (an X icon).

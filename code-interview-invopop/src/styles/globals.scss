@@ -1,0 +1,17 @@
+// Global styles
+//
+// This file contains definitions for the global styles used in the application.
+
+@import './ColorPallete.module.scss';
+
+// MARK: Elements
+// - Dividers
+$divider-height: 1px;
+hr {
+    border: none;
+    height: $divider-height;
+    background-color: $color-divider;
+    // Constant margin across the application
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+}

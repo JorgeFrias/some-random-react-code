@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import Image from "next/image";
 import styles from "./page.module.css";
@@ -15,6 +15,7 @@ import {
 } from "../src/components/buttons/InlineButtonComponent";
 
 import { CloseButton } from "../src/components/buttons/CloseButtonComponent";
+import { HeadingComponent } from "@/components/textElements/HeadingComponent";
 
 export default function Home() {
   const tmpOnClick = () => {};
@@ -22,23 +23,38 @@ export default function Home() {
   return (
     <main>
       <div>
+        <HeadingComponent>Heading</HeadingComponent>
+
         <LargeButton role={ButtonRole.Primary} onClick={tmpOnClick}>
           Buy now
         </LargeButton>
+
+        <HeadingComponent
+          tag={"20.00 EUR"}
+        >Heading</HeadingComponent>
+
 
         <InlineButton role={InlineButtonRole.Primary} onClick={tmpOnClick}>
           Inline button
         </InlineButton>
 
-        <InlineButton role={InlineButtonRole.Primary} onClick={tmpOnClick} backgroundOnHover={true}>
+        <InlineButton
+          role={InlineButtonRole.Primary}
+          onClick={tmpOnClick}
+          backgroundOnHover={true}
+        >
           Inline button
         </InlineButton>
 
-        <InlineButton role={InlineButtonRole.Secondary} onClick={tmpOnClick} backgroundOnHover={true}>
+        <InlineButton
+          role={InlineButtonRole.Secondary}
+          onClick={tmpOnClick}
+          backgroundOnHover={true}
+        >
           Inline button
         </InlineButton>
 
-        <CloseButton onClick={tmpOnClick} backgroundOnHover={true}/>
+        <CloseButton onClick={tmpOnClick} backgroundOnHover={true} />
       </div>
     </main>
   );

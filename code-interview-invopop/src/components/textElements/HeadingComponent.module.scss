@@ -1,0 +1,26 @@
+@import "../../styles/ColorPallete.module.scss";
+@import "../../styles/TextStyles.module.scss";
+
+.h1_heading, .tag {
+  // Layout
+  display: flex;
+  height: 24px;
+  flex-direction: column;
+  flex-shrink: 0;
+  margin-bottom: 0;
+  margin-top: 0;
+
+  // Typography
+  color: $color-title;
+  font-family: $font-family;
+  font-size: 1.125rem;
+  font-weight: 800;
+  line-height: 1.125rem;
+  letter-spacing: -0.01125rem;
+}
+
+.inline_space_between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
