@@ -9,6 +9,10 @@ import {
   LargeButton,
 } from "../src/components/buttons/LargeButtonComponent";
 
+import {
+  InlineButton
+} from "../src/components/buttons/InlineButtonComponent";
+
 export default function Home() {
   const tmpOnClick = () => {};
 
@@ -18,6 +22,15 @@ export default function Home() {
         <LargeButton role={ButtonRole.Primary} onClick={tmpOnClick}>
           Buy now
         </LargeButton>
+
+        <InlineButton onClick={tmpOnClick}>
+          Inline button
+        </InlineButton>
+
+        <InlineButton onClick={tmpOnClick} backgroundOnHover={true}>
+          Inline button
+        </InlineButton>
+
       </div>
     </main>
   );

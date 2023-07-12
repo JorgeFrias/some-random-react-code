@@ -26,7 +26,7 @@ const getButtonStyle = (role: ButtonRole) => {
 };
 
 /**
- * Primary button component.
+ * Defines a large button with a solid background, can have multiple roles defined by the ButtonRole enum.
  */
 const LargeButton: React.FC<Props> = ({ role, children, onClick }) => {
   return (

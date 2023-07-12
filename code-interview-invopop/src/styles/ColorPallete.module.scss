@@ -28,11 +28,15 @@ $color-side-panel-body-numerals: $color-body-numerals;
 
 
 // MARK: Actions
+// - Buttons
 $color-action-primary: $color-accent;
 $color-action-disabled: $color-accent;       // TODO: The design doesn't consider a disabled state for the actions
 $color-action-secondary: #8383AD;
 $color-button-primary-bg: $color-accent;
 $color-button-primary-text: #FFFFFF;
+// - Buttons without background
+$color-button-inline: $color-action-primary;
+$color-button-inline-hover-region: #21224014;
 
 
 // MARK: Backgrounds
