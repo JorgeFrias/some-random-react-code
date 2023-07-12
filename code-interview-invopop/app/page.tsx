@@ -1,5 +1,6 @@
 "use client";
 
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import styles from "./page.module.css";
 
@@ -8,12 +9,10 @@ import {
   ButtonRole,
   LargeButton,
 } from "../src/components/buttons/LargeButtonComponent";
-
 import {
   InlineButton,
   ButtonRole as InlineButtonRole,
 } from "../src/components/buttons/InlineButtonComponent";
-
 import { CloseButton } from "../src/components/buttons/CloseButtonComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
 import {
@@ -24,14 +23,27 @@ import {
   PriceDisplayComponent,
   PriceDisplayTraitVariation,
 } from "@/components/textElements/PriceDisplayComponent";
-
 import { Currency } from "@/models/currency";
-
 import { Product } from "@/models/product";
 import { ProductDetailsPreviewComponent } from "@/components/customElements/ProductDetailsPreviewComponent";
+import { QuantityModifier } from "@/components/customElements/QuantityModifierComponent";
+import { on } from "events";
 
 export default function Home() {
   const tmpOnClick = () => {};
+  const [quantity, setQuantity] = useState(0);
+
+  const onQuantityAdd = () => {
+    setQuantity(quantity + 1);
+  };
+
+  const onQuantitySubtract = () => {
+    setQuantity(quantity - 1);
+  };
+
+  const onQuantityChange = (newQuantity: number) => {
+    setQuantity(newQuantity);
+  };
 
   return (
     <main>
@@ -105,6 +117,12 @@ export default function Home() {
             )
           }
         />
+
+        <QuantityModifier
+          quantity={quantity}
+          onQuantityAdd={onQuantityAdd}
+          onQuantitySubtract={onQuantitySubtract}
+          onQuantityChange={onQuantityChange}/>
       </div>
     </main>
   );
