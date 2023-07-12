@@ -1,0 +1,13 @@
+// Global styles for text
+//
+// This file contains definitions for the global text styles used in the application.
+//
+// Most components should define their own text styles, but if a text style is used in multiple components, it should be defined here.
+
+// MARK: Definitions
+$font-family: Avenir;
+
+// MARK: Exports
+:export {
+    font-family: $font-family;
+}
