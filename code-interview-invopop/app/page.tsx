@@ -22,9 +22,10 @@ import {
 } from "@/components/textElements/SubHeadingComponent";
 import {
   PriceDisplayComponent,
-  Currency,
   PriceDisplayTraitVariation,
 } from "@/components/textElements/PriceDisplayComponent";
+
+import { Currency } from "@/models/currency";
 
 export default function Home() {
   const tmpOnClick = () => {};

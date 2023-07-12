@@ -1,47 +1,12 @@
 "use client";
 
 import React from "react";
-import styles from "./PriceDisplayComponent.module.scss";
+import styles from "./ProductDetailsPreviewComponent.module.scss";
 import { Currency } from "@/models/currency";
-
-/**
- *  Defines the visual hierarchy of the element.
- *  Inherited means that the element will inherit the visual hierarchy from the parent.
- */
-enum TraitVariation {
-  Large,
-  Medium,
-  Inherited,
-}
-
-/**
- * Returns the classes the element based on the role.
- */
-const getClassForRole = (role: TraitVariation) => {
-  let buttonClass = styles.button_inline;
-
-  // Set the button class based on the role.
-  switch (role) {
-    case TraitVariation.Large:
-      buttonClass = styles.price_display_primary;
-      break;
-    case TraitVariation.Medium:
-      buttonClass = styles.price_display_secondary;
-      break;
-    case TraitVariation.Inherited:
-      buttonClass = styles.price_display_inherited;
-      break;
-    default:
-      buttonClass = styles.price_display_inherited;
-      break;
-  }
-  return buttonClass;
-};
 
 interface Props {
   price: number;
   currency: Currency;
-  variation: TraitVariation;
 }
 
 /**
@@ -81,4 +46,5 @@ const PriceDisplayComponent: React.FC<Props> = ({ price, currency, variation }) 
 export {
   PriceDisplayComponent,
   TraitVariation as PriceDisplayTraitVariation,
+  Currency,
 };
