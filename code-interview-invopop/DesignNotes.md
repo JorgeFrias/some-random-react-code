@@ -14,3 +14,4 @@
 
 # General elements
 - The dividers are not consistent, I choose the one that uses opacity as can work better over different backgrounds.
+- Pricing. The design only considers whole numbers for the price, I added a decimal part to the price if the price provided has it, keeping exclusively the whole number for integer prices.

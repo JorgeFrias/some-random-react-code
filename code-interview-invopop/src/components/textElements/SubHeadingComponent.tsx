@@ -23,7 +23,7 @@ const getClassForRole = (role: SubheadingRole) => {
       buttonClass = styles.subheading_primary;
       break;
     case SubheadingRole.Secondary:
-      buttonClass = styles.subheading_primary;
+      buttonClass = styles.subheading_secondary;
       break;
     default:
       buttonClass = styles.subheading_primary;

@@ -1,0 +1,33 @@
+@import "../../styles/ColorPallete.module.scss";
+@import "../../styles/TextStyles.module.scss";
+
+.price_display {
+  font-family: $font-family;
+  text-transform: uppercase;
+
+  &_large {
+    @extend .price_display;
+
+    color: $color-body-numerals;
+    font-size: 1.25rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 1.563rem;
+    letter-spacing: -0.013rem;
+  }
+
+  &_medium {
+    @extend .price_display;
+
+    color: $color-body-numerals;
+    font-size: 1rem;
+    font-style: normal;
+    font-weight: 350;
+    line-height: 1rem;
+    letter-spacing: -0.01rem;
+  }
+
+  &_inherited {
+    @extend .price_display;
+  }
+}

@@ -16,7 +16,15 @@ import {
 
 import { CloseButton } from "../src/components/buttons/CloseButtonComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
-import { SubheadingComponent, SubheadingRole } from "@/components/textElements/SubHeadingComponent";
+import {
+  SubheadingComponent,
+  SubheadingRole,
+} from "@/components/textElements/SubHeadingComponent";
+import {
+  PriceDisplayComponent,
+  Currency,
+  PriceDisplayTraitVariation,
+} from "@/components/textElements/PriceDisplayComponent";
 
 export default function Home() {
   const tmpOnClick = () => {};
@@ -30,10 +38,7 @@ export default function Home() {
           Buy now
         </LargeButton>
 
-        <HeadingComponent
-          tag={"20.00 EUR"}
-        >Heading</HeadingComponent>
-
+        <HeadingComponent tag={"20.00 EUR"}>Heading</HeadingComponent>
 
         <InlineButton role={InlineButtonRole.Primary} onClick={tmpOnClick}>
           Inline button
@@ -64,6 +69,26 @@ export default function Home() {
         <SubheadingComponent role={SubheadingRole.Secondary}>
           Subheading Secondary
         </SubheadingComponent>
+
+        <PriceDisplayComponent
+          price={1000}
+          currency={Currency.EUR}
+          variation={PriceDisplayTraitVariation.Large}
+        />
+
+        <PriceDisplayComponent
+          price={1999}
+          currency={Currency.USD}
+          variation={PriceDisplayTraitVariation.Medium}
+        />
+
+        <div style={{ fontSize: "0.5rem" }}>
+          <PriceDisplayComponent
+            price={1999}
+            currency={Currency.USD}
+            variation={PriceDisplayTraitVariation.Inherited}
+          />
+        </div>
       </div>
     </main>
   );
