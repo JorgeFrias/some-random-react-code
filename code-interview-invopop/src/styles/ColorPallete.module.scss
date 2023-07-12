@@ -5,7 +5,7 @@
 // Do not define colors in other files, use this file instead, thus ensuring consistency and ease when changing the color pallete.
 //
 
-$color-brand: #7350FF;
+$color-accent: #7350FF;
 
 // MARK: Texts
 $color-title: #1A1A38;
@@ -28,10 +28,10 @@ $color-side-panel-body-numerals: $color-side-panel-body-numerals;
 
 
 // MARK: Actions
-$color-action-primary: $color-brand;
-$color-action-disabled: $color-brand;       // TODO: The design doesn't consider a disabled state for the actions
+$color-action-primary: $color-accent;
+$color-action-disabled: $color-accent;       // TODO: The design doesn't consider a disabled state for the actions
 $color-action-secondary: #8383AD;
-$color-button-primary-bg: $color-brand;
+$color-button-primary-bg: $color-accent;
 $color-button-primary-text: #FFFFFF;
 
 
@@ -46,3 +46,26 @@ $color-divider: #21224029;                  // The design uses another color for
 $color-divider-side-panel: $color-divider;
 // - Borders
 $color-border-image: #CACAD1;
+
+// MARK: Exports
+:export {
+    color-title: $color-title;
+    color-body: $color-body;
+    color-body-annotations: $color-body-annotations;
+    color-body-numerals: $color-body-numerals;
+    color-heading: $color-heading;
+    color-caption: $color-caption;
+    color-side-panel-title: $color-side-panel-title;
+    color-side-panel-body: $color-side-panel-body;
+    color-side-panel-body-numerals: $color-side-panel-body-numerals;
+    color-action-primary: $color-action-primary;
+    color-action-disabled: $color-action-disabled;
+    color-action-secondary: $color-action-secondary;
+    color-button-primary-bg: $color-button-primary-bg;
+    color-button-primary-text: $color-button-primary-text;
+    color-background-primary: $color-background-primary;
+    color-background-secondary: $color-background-secondary;
+    color-divider: $color-divider;
+    color-divider-side-panel: $color-divider-side-panel;
+    color-border-image: $color-border-image;
+}
