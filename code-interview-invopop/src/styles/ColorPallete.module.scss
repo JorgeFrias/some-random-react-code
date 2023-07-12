@@ -1,0 +1,48 @@
+// Global Color Pallete
+//
+// This file contains definitions for the global color pallete used in the application.
+//
+// Do not define colors in other files, use this file instead, thus ensuring consistency and ease when changing the color pallete.
+//
+
+$color-brand: #7350FF;
+
+// MARK: Texts
+$color-title: #1A1A38;
+$color-body: #1A1A38;
+/// Product codes
+$color-body-annotations: #62628A;   
+/// Prices, quantities and other numeric values
+$color-body-numerals: #000000;
+/// Column headers
+$color-heading: #A6A7B3;
+/// Annotations under labels
+$color-caption: #A6A7B3;
+// - Panels definitions. Side panels that have a secondary background color
+/// Side Panel title text color
+$color-side-panel-title: $color-title;
+/// Side Panel body text color
+$color-side-panel-body: #212240;
+/// Side Panel quantities and other numeric values
+$color-side-panel-body-numerals: $color-side-panel-body-numerals;
+
+
+// MARK: Actions
+$color-action-primary: $color-brand;
+$color-action-disabled: $color-brand;       // TODO: The design doesn't consider a disabled state for the actions
+$color-action-secondary: #8383AD;
+$color-button-primary-bg: $color-brand;
+$color-button-primary-text: #FFFFFF;
+
+
+// MARK: Backgrounds
+$color-background-primary: #FFFFFF;
+$color-background-secondary: #D9D9D9;
+
+
+// MARK: Other Elements
+// - Dividers
+$color-divider: #21224029;                  // The design uses another color for the divider without transparency that results in the same appearance as this one, the code assumes this is the only declared color
+$color-divider-side-panel: $color-divider;
+// - Borders
+$color-border-image: #CACAD1;
