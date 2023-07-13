@@ -7,6 +7,8 @@ import { CartRowComponent } from "@/components/customElements/CartRowComponent";
 import { CartHeadingsComponent } from "@/components/customElements/CartHeadingsComponent";
 import { CartSummaryComponent } from "@/components/layout/CartSummaryComponent";
 
+import cartSummaryStyles from "@/components/layout/CartSummaryComponent.module.scss";
+
 import { Product } from "@/models/product";
 import { products } from "../data/products";
 import { discounts } from "../data/discounts";
@@ -81,9 +83,8 @@ export default function Home() {
             </div>
           </div>
         }
-        sideView={<CartSummaryComponent cart={cart} />}
-        // hasCloseButton={true}
-        // onClose={() => {}}
+        sideView={<CartSummaryComponent cart={cart}/>}
+        sideViewClassName={cartSummaryStyles.cart_summary_background}
       />
     </main>
   );

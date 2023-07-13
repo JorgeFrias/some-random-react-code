@@ -8,7 +8,9 @@ import { CloseButton } from "../buttons/CloseButtonComponent";
 
 interface Props {
   primaryView: React.ReactNode;
+  primaryViewClassName?: string;
   sideView: React.ReactNode;
+  sideViewClassName?: string;
   hasCloseButton?: boolean;
   onClose?: () => void;
 }
@@ -18,12 +20,13 @@ interface Props {
  */
 const MainContainer: React.FC<Props> = ({
   primaryView,
+  primaryViewClassName,
   sideView,
+  sideViewClassName,
   hasCloseButton,
   onClose,
 }) => {
   const handleClose = onClose || (() => {}); // Unwrap the optional function
-
   return (
     <div
       className={`${styles.main_container} d-flex align-items-center justify-content-center`}
@@ -37,8 +40,8 @@ const MainContainer: React.FC<Props> = ({
           )}
         </div>
         <div className="row m-0 h-100">
-          <div className={`col-8 ${styles.primary_view}`}>{primaryView}</div>
-          <div className={`col-4 ${styles.side_view}`}>{sideView}</div>
+          <div className={`col-8 ${styles.primary_view} ${primaryViewClassName}`}>{primaryView}</div>
+          <div className={`col-4 ${styles.side_view} ${sideViewClassName}`}>{sideView}</div>
         </div>
       </div>
     </div>
