@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { MainContainer } from "@/components/layout/MainContainerComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
 import {CartRowComponent} from "@/components/customElements/CartRowComponent";
+import { CartHeadingsComponent } from "@/components/customElements/CartHeadingsComponent";
 
 import { products } from "../data/products";
 
@@ -14,6 +15,7 @@ export default function Home() {
         primaryView={
           <div>
             <HeadingComponent>Shirt</HeadingComponent>
+            <CartHeadingsComponent />
             <CartRowComponent 
             product={products[0]}
             total={"20 €"}
