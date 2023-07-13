@@ -3,10 +3,11 @@
 import React, { useState, useEffect } from "react";
 import { MainContainer } from "@/components/layout/MainContainerComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
-import {CartRowComponent} from "@/components/customElements/CartRowComponent";
+import { CartRowComponent } from "@/components/customElements/CartRowComponent";
 import { CartHeadingsComponent } from "@/components/customElements/CartHeadingsComponent";
 import { CartSummaryComponent } from "@/components/layout/CartSummaryComponent";
 
+import { Product } from "@/models/product";
 import { products } from "../data/products";
 import { discounts } from "../data/discounts";
 import { Cart } from "@/models/cart";
@@ -14,7 +15,6 @@ import { Cart } from "@/models/cart";
 const defaultCart = new Cart(products, discounts);
 
 export default function Home() {
-
   const [cart, setCart] = useState(defaultCart);
 
   return (
@@ -24,19 +24,25 @@ export default function Home() {
           <div>
             <HeadingComponent>Shirt</HeadingComponent>
             <CartHeadingsComponent />
-            <CartRowComponent 
-            product={products[0]}
-            total={"20 €"}
-            quantity={1}
-            onQuantityAdd={() => {}}
-            onQuantitySubtract={() => {}}
-            onQuantityChange={() => {}}
-            />
+            <div>
+              {cart.items.map((item) => (
+                <CartRowComponent
+                  key={item.product.getCode()}
+                  product={item.product}
+                  total={Product.formatPrice(
+                    item.product.getPrice() * item.quantity,
+                    cart.currency
+                  )}
+                  quantity={item.quantity}
+                  onQuantityAdd={() => {}}
+                  onQuantitySubtract={() => {}}
+                  onQuantityChange={() => {}}
+                />
+              ))}
+            </div>
           </div>
         }
-        sideView={
-          <CartSummaryComponent cart={cart} />
-        }
+        sideView={<CartSummaryComponent cart={cart} />}
         // hasCloseButton={true}
         // onClose={() => {}}
       />

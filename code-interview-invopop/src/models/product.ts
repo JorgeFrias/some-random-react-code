@@ -34,6 +34,7 @@ class Product {
   }
 
   // MARK: Getters
+  // TODO: Use real TS getters instead of methods, what was I thinking?
   /**
    * Product name, e.g. "Black T-Shirt".
    */

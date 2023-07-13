@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import styles from "./QuantityModifierComponent.module.scss";
+import styles from "./CartRowComponent.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Product } from "@/models/product";
 
@@ -33,7 +33,7 @@ const CartRowComponent: React.FC<Props> = ({
   onQuantityChange,
 }) => {
   return (
-    <div>
+    <div className={styles.cart_row_component}>
       <div className="row">
         <div className="col-6">
           <div className="h-100 d-flex align-items-center">
