@@ -1,5 +1,6 @@
 import { Product, ProductQuantity } from "./product";
 import { Discount } from "./discount";
+import { Currency } from "./currency";
 
 /**
  * Represents a cart with its items and discounts.
@@ -12,6 +13,27 @@ export class Cart {
 
   constructor(items: ProductQuantity[]) {
     this.items = items;
+  }
+
+  /**
+   * Number of items in the cart, including multiple items of the same product.
+   */
+  get numberOfItems(): number {
+    return this.items.reduce((acc, item) => {
+      return acc + item.quantity;
+    }, 0);
+  }
+
+  /**
+   * Currency of the cart.
+   *
+   * If the cart is empty, returns the default currency (EUR).
+   */
+  get currency(): Currency {
+    if (this.items.length === 0) {
+      return Currency.EUR;
+    }
+    return this.items[0].product.getCurrency();
   }
 
   /**
