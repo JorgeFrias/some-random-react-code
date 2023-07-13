@@ -3,6 +3,7 @@
 import React from "react";
 import styles from "./PriceDisplayComponent.module.scss";
 import { Currency } from "@/models/currency";
+import { Product } from "@/models/product";
 
 /**
  *  Defines the visual hierarchy of the element.
@@ -53,27 +54,12 @@ interface Props {
  * If the price is a whole number, the .00 will be removed, as per the design.
  */
 const PriceDisplayComponent: React.FC<Props> = ({ price, currency, variation }) => {
-  let formattedPrice: string;
-  // Convert price to decimal and format to 2 decimal places.
-  // + Check if the formatted price is a whole number and remove the .00 if it is
-  if (Number.isInteger(price / 100)) {
-    formattedPrice = (price / 100).toFixed(0);
-  } else {
-    formattedPrice = (price / 100).toFixed(2);
-  }
-
+  // Format the price based on the currency.
+  const formattedPrice = Product.formatPrice(price, currency);
+  
   return (
     <p className={getClassForRole(variation)}>
-      {currency === Currency.EUR ? (
-        <>
-          {formattedPrice} {currency}
-        </>
-      ) : (
-        <>
-          {currency}
-          {formattedPrice}
-        </>
-      )}
+      {formattedPrice}
     </p>
   );
 };
