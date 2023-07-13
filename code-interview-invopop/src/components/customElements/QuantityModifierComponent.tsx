@@ -14,6 +14,8 @@ interface Props {
 }
 
 // TODO: Use +/- icons instead of the characters.
+// TODO: Set a max length for the input, which is the max quantity of the product on a given order? If is > 3 digits the input box should grow.
+// TODO: Long press on +/- should increase/decrease the quantity continuously.
 
 /**
  * Defines a selector where the user can add or subtract a quantity.
@@ -36,17 +38,19 @@ const QuantityModifier: React.FC<Props> = ({
         onClick={onQuantitySubtract}
         backgroundOnHover={true}
       >
-        -
+        <div className={styles.quantity_icon}>-</div>
       </InlineButton>
 
-      <input type="number" value={quantity} onChange={handleInputChange} />
+      <div className={styles.quantity_input}>
+        <input type="number" value={quantity} onChange={handleInputChange} />
+      </div>
 
       <InlineButton
         role={ButtonRole.Primary}
         onClick={onQuantityAdd}
         backgroundOnHover={true}
       >
-        +
+        <div className={styles.quantity_icon}>+</div>
       </InlineButton>
     </div>
   );

@@ -38,6 +38,8 @@ export default function Home() {
   };
 
   const onQuantitySubtract = () => {
+     // Guard quantity is not negative
+    if (quantity - 1 < 0) { return; }
     setQuantity(quantity - 1);
   };
 
@@ -122,7 +124,8 @@ export default function Home() {
           quantity={quantity}
           onQuantityAdd={onQuantityAdd}
           onQuantitySubtract={onQuantitySubtract}
-          onQuantityChange={onQuantityChange}/>
+          onQuantityChange={onQuantityChange}
+        />
       </div>
     </main>
   );

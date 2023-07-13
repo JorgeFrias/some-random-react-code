@@ -46,10 +46,12 @@ $color-background-secondary: #D9D9D9;
 
 // MARK: Other Elements
 // - Dividers
-$color-divider: #21224029;                  // The design uses another color for the divider without transparency that results in the same appearance as this one, the code assumes this is the only declared color
+$color-divider: #21224029;          // The design uses another color for the divider without transparency that results in the same appearance as this one, the code assumes this is the only declared color
 $color-divider-side-panel: $color-divider;
 // - Borders
 $color-border-image: #CACAD1;
+/// For elements that have a border, as inputs
+$color-element-border: #DBDBE0;
 
 // MARK: Exports
 :export {
