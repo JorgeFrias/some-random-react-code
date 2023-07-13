@@ -6,7 +6,12 @@ import { MainContainer } from "@/components/layout/MainContainerComponent";
 export default function Home() {
   return (
     <main>
-      <MainContainer primaryView={<div>Primary View</div>} sideView={<div>Side View</div>} />
+      <MainContainer
+        primaryView={<div>Primary View</div>}
+        sideView={<div>Side View</div>}
+        // hasCloseButton={true}
+        // onClose={() => {}}
+      />
     </main>
   );
 }
