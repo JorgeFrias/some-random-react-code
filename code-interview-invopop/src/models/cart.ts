@@ -11,16 +11,20 @@ export class Cart {
   /** Discounts that are potentially applicable to this user. */
   applicableDiscounts: Discount[];
 
-  constructor(products: Product[], applicableDiscounts: Discount[]) {
-    this.items = products.map((product) => {
-      return {
-        product: product,
-        quantity: 0,
-      };
-    });
+  constructor(products: ProductQuantity[], applicableDiscounts: Discount[]) {
+    this.items = products;
     this.applicableDiscounts = applicableDiscounts;
   }
 
+  getItems(): ProductQuantity[] {
+    return this.items;
+  }
+
+  getDiscounts(): Discount[] {
+    return this.applicableDiscounts;
+  }
+
+  // MARK: - About the cart
   /**
    * Number of items in the cart, including multiple items of the same product.
    */
@@ -30,6 +34,7 @@ export class Cart {
     }, 0);
   }
 
+  // MARK: - Price Computation
   /**
    * Currency of the cart.
    *
@@ -64,5 +69,52 @@ export class Cart {
   /** Total price of the cart as an integer without decimals, with discounts applied. */
   get totalWithDiscount(): number {
     return this.total - this.cumulativeDiscount;
+  }
+
+  // MARK: - Cart Operations
+  /**
+   * Adds a product to the cart.
+   *
+   * If the product is already in the cart, increases the quantity.
+   * @param product The product to add.
+   * @param quantity The quantity to add. Defaults to 1.
+   */
+  addItem(product: Product, quantity: number = 1): Cart {
+    const item = this.items.find((item) => item.product === product);
+    if (item) {
+      item.quantity += quantity;
+    }
+
+    return this;
+  }
+  /**
+   * Removes a product from the cart.
+   *
+   * If the product is already in the cart, decreases the quantity.
+   * @param product The product to remove.
+   * @param quantity The quantity to remove. Defaults to 1.
+   */
+  removeItem(product: Product, quantity: number = 1): Cart {
+    const item = this.items.find((item) => item.product === product);
+    if (item) {
+      item.quantity -= quantity;
+    }
+
+    return this;
+  }
+
+  /**
+   * Updates the quantity of a product in the cart.
+   *
+   * @param product The product to update.
+   * @param quantity The new quantity.
+   */
+  updateItemQuantity(product: Product, quantity: number): Cart {
+    const item = this.items.find((item) => item.product === product);
+    if (item) {
+      item.quantity = quantity;
+    }
+
+    return this;
   }
 }

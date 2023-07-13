@@ -65,7 +65,7 @@ const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
       {/* Total items + Total Price */}
 
       <CartSummaryRowComponent
-        leadingText="Total items"
+        leadingText={`${cart.numberOfItems} Items`}
         trailingView={
           <PriceDisplayComponent
             formattedPrice={Product.formatPrice(cart.total, cart.currency)}
