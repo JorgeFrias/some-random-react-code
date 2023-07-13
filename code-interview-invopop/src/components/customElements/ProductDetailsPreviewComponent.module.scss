@@ -14,4 +14,13 @@
     border-radius: 4px; // Left in px as the image size is defined in px
     border: 1px solid #cacad1; // Not a fan of declaring the color here, but doesn't look like it's used anywhere else
   }
+
+  .productThumbnail {
+    // It's a button, remove the default styling
+    border: none;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+  }
 }

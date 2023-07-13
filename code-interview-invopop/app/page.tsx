@@ -78,6 +78,7 @@ export default function Home() {
                   onQuantityChange={(quantity) =>
                     handleQuantityChange(item.product, quantity)
                   }
+                  onShowDetails={(product) => console.log(product)}
                 />
               ))}
             </div>

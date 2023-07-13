@@ -19,6 +19,7 @@ interface Props {
   onQuantityAdd: () => void;
   onQuantitySubtract: () => void;
   onQuantityChange: (newQuantity: number) => void;
+  onShowDetails: (product: Product) => void;
 }
 
 /**
@@ -31,13 +32,17 @@ const CartRowComponent: React.FC<Props> = ({
   onQuantityAdd,
   onQuantitySubtract,
   onQuantityChange,
+  onShowDetails
 }) => {
   return (
     <div className={styles.cart_row_component}>
       <div className="row">
         <div className="col-6">
           <div className="h-100 d-flex align-items-center">
-            <ProductDetailsPreviewComponent product={product} />
+            <ProductDetailsPreviewComponent 
+            product={product}
+            onShowDetails={onShowDetails}
+             />
           </div>
         </div>
         <div className="col-2">

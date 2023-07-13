@@ -18,9 +18,9 @@ import {
   ButtonRole as InlineButtonRole,
 } from "../buttons/InlineButtonComponent";
 
-
 interface Props {
   product: Product;
+  onShowDetails: (product: Product) => void;
 }
 
 /**
@@ -29,26 +29,30 @@ interface Props {
  *
  * Both the image and the product name are clickable and will open the product page in a new tab. The product code is not clickable, as the user might find infuriating if they try to copy the reference.
  */
-const ProductDetailsPreviewComponent: React.FC<Props> = ({ product }) => {
+const ProductDetailsPreviewComponent: React.FC<Props> = ({
+  product,
+  onShowDetails,
+}) => {
   return (
     <div className={styles.product_preview}>
       <div className="d-flex align-items-center">
         <div className="">
-          <Link href={product.productURL()}>
+          <button
+            onClick={() => onShowDetails(product)}
+            className={styles.productThumbnail}
+          >
             <Image
               src={product.getImageURL().toString()}
               width={72}
               height={72}
               alt={`Picture of the product: ${product.getName()}`}
             />
-          </Link>
+          </button>
         </div>
         <div className={`d-inline ${styles.text_block}`}>
           <InlineButton
             role={InlineButtonRole.Primary}
-            onClick={() => {
-              window.open(product.productURL(), "_blank");
-            }}
+            onClick={() => onShowDetails(product)}
           >
             {product.getName()}
           </InlineButton>
