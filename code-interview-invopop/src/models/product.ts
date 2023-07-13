@@ -106,4 +106,15 @@ class Product {
   }
 }
 
-export { Product };
+/**
+ * Represents a product in the cart with its quantity.
+ */
+interface ProductQuantity {
+  product: Product;
+  quantity: number;
+}
+
+
+export { Product };  
+export type { ProductQuantity };
+
