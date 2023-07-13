@@ -1,12 +1,7 @@
-// Data models
 import { Product, ProductQuantity } from "../src/models/product";
 import { Discount } from "../src/models/discount";
 
-// Import data (in the real world this would be fetched from a server)
-import { products } from "../data/products";
-
 // MARK: Discounts Definitions
-
 /**
  * Discount Implementation:
  * - 2x1 on Caps
@@ -22,7 +17,9 @@ class DiscountTwoForOneCaps implements Discount {
   discountApplies(cartState: ProductQuantity[]): boolean {
     // acc - accumulator
     const capsCount = cartState.reduce((acc, item) => {
-      return item.product.getCode() === this.appliesToProductCode ? acc + item.quantity : acc;
+      return item.product.getCode() === this.appliesToProductCode
+        ? acc + item.quantity
+        : acc;
     }, 0);
 
     return capsCount >= 2;
@@ -55,7 +52,9 @@ class DiscountBulkTShirt implements Discount {
   discountApplies(cartState: ProductQuantity[]): boolean {
     // acc - accumulator
     const tshirtCount = cartState.reduce((acc, item) => {
-      return item.product.getCode() === this.appliesToProductCode ? acc + item.quantity : acc;
+      return item.product.getCode() === this.appliesToProductCode
+        ? acc + item.quantity
+        : acc;
     }, 0);
 
     return tshirtCount >= 3;
@@ -74,8 +73,8 @@ class DiscountBulkTShirt implements Discount {
 
 // MARK: Discounts Array
 export const discounts: Discount[] = [
-    new DiscountTwoForOneCaps(),
-    new DiscountBulkTShirt()
+  new DiscountTwoForOneCaps(),
+  new DiscountBulkTShirt(),
 ];
 
 // TODO: If we can ensure that only one instance of a given productQuantity is passed on cartState, we can return early when the discount applies. This is how it the cart behaves right now, but for the future seems like it could break if we change the cart to allow multiple instances of the same product.

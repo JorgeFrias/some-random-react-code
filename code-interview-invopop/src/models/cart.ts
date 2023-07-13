@@ -5,9 +5,9 @@ import { Discount } from "./discount";
  * Represents a cart with its items and discounts.
  */
 export class Cart {
-  /** Items in the cart */
+  /** Items in the cart. */
   items: ProductQuantity[] = [];
-  /** Discounts that are potentially applicable to this user */
+  /** Discounts that are potentially applicable to this user. */
   applicableDiscounts: Discount[] = [];
 
   constructor(items: ProductQuantity[]) {
