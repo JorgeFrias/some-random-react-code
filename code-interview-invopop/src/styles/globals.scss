@@ -4,6 +4,10 @@
 
 @import './ColorPallete.module.scss';
 
+body {
+    background-image: url('/img/background.png');
+}
+
 // MARK: Elements
 // - Dividers
 $divider-height: 1px;
