@@ -87,21 +87,18 @@ export default function Home() {
         </SubheadingComponent>
 
         <PriceDisplayComponent
-          price={1000}
-          currency={Currency.EUR}
+          formattedPrice={"10 €"}
           variation={PriceDisplayTraitVariation.Large}
         />
 
         <PriceDisplayComponent
-          price={1999}
-          currency={Currency.USD}
+          formattedPrice={"19.99 €"}
           variation={PriceDisplayTraitVariation.Medium}
         />
 
         <div style={{ fontSize: "2rem" }}>
           <PriceDisplayComponent
-            price={-1999}
-            currency={Currency.USD}
+            formattedPrice={"-19.99 €"}
             variation={PriceDisplayTraitVariation.Inherited}
           />
         </div>

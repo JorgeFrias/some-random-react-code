@@ -24,10 +24,10 @@ const getClassForRole = (role: TraitVariation) => {
   // Set the button class based on the role.
   switch (role) {
     case TraitVariation.Large:
-      buttonClass = styles.price_display_primary;
+      buttonClass = styles.price_display_large;
       break;
     case TraitVariation.Medium:
-      buttonClass = styles.price_display_secondary;
+      buttonClass = styles.price_display_medium;
       break;
     case TraitVariation.Inherited:
       buttonClass = styles.price_display_inherited;
@@ -40,8 +40,7 @@ const getClassForRole = (role: TraitVariation) => {
 };
 
 interface Props {
-  price: number;
-  currency: Currency;
+  formattedPrice: string;
   variation: TraitVariation;
 }
 
@@ -53,10 +52,7 @@ interface Props {
  * 
  * If the price is a whole number, the .00 will be removed, as per the design.
  */
-const PriceDisplayComponent: React.FC<Props> = ({ price, currency, variation }) => {
-  // Format the price based on the currency.
-  const formattedPrice = Product.formatPrice(price, currency);
-  
+const PriceDisplayComponent: React.FC<Props> = ({ formattedPrice, variation }) => {
   return (
     <p className={getClassForRole(variation)}>
       {formattedPrice}

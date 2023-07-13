@@ -4,6 +4,8 @@
 .price_display {
   font-family: $font-family;
   text-transform: uppercase;
+  margin-bottom: 0;
+  margin-top: 0;
 
   &_large {
     @extend .price_display;

@@ -78,6 +78,13 @@ class Product {
   /**
    * Product price formatted as a string, e.g. "20.00€".
    */
+  getFormattedPrice(): string {
+    return Product.formatPrice(this.price, this.currency);
+  }
+
+  /**
+   * Formats a price as a string, e.g. "20.00€".
+   */
   public static formatPrice(integerPrice: number, currency: Currency): string {
     let formattedPrice: string;
     let priceWithCurrency: string;
