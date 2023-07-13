@@ -5,10 +5,18 @@ import { MainContainer } from "@/components/layout/MainContainerComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
 import {CartRowComponent} from "@/components/customElements/CartRowComponent";
 import { CartHeadingsComponent } from "@/components/customElements/CartHeadingsComponent";
+import { CartSummaryComponent } from "@/components/layout/CartSummaryComponent";
 
 import { products } from "../data/products";
+import { discounts } from "../data/discounts";
+import { Cart } from "@/models/cart";
+
+const defaultCart = new Cart(products, discounts);
 
 export default function Home() {
+
+  const [cart, setCart] = useState(defaultCart);
+
   return (
     <main>
       <MainContainer
@@ -27,9 +35,7 @@ export default function Home() {
           </div>
         }
         sideView={
-          <div>
-            <HeadingComponent>Shirt</HeadingComponent>
-          </div>
+          <CartSummaryComponent cart={cart} />
         }
         // hasCloseButton={true}
         // onClose={() => {}}

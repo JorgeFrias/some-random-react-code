@@ -34,7 +34,9 @@ const CartSummaryRowComponent: React.FC<CartSummaryRowProps> = ({
   // TODO: trailingView is always a PriceDisplayComponent, only changing the role, so we can make this more specific.
   return (
     <div>
-      <div className={`d-flex ${styles.cartSummaryRows}`}>
+      <div
+        className={`d-flex justify-content-between ${styles.cartSummaryRows}`}
+      >
         <div className="h-100 d-flex align-items-center">
           <p className={styles.leading_text}>{leadingText}</p>
         </div>
@@ -58,7 +60,7 @@ interface CartProps {
 const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
   // TODO: This is a bit too large, break it down into smaller components.
   return (
-    <div className="d-flex flex-column">
+    <div className="d-flex flex-column h-100">
       <HeadingComponent>Order details</HeadingComponent>
       {/* Total items + Total Price */}
 
@@ -102,29 +104,35 @@ const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
           return null;
         })}
       </div>
+      <hr />
 
       {/* Total */}
-      <div className="align-self-end">
-        <hr />
-        <CartSummaryRowComponent
-          key={"TOTAL"}
-          leadingText={"Total"}
-          trailingView={
-            <PriceDisplayComponent
-              formattedPrice={Product.formatPrice(
-                cart.totalWithDiscount,
-                cart.currency
-              )}
-              variation={PriceDisplayTraitVariation.Medium}
-            />
-          }
-        />
+      <div className="w-100 h-100 d-flex align-items-end">
+        <div className="w-100">
+          <hr />
+          <CartSummaryRowComponent
+            key={"TOTAL"}
+            leadingText={"Total"}
+            trailingView={
+              <PriceDisplayComponent
+                formattedPrice={Product.formatPrice(
+                  cart.totalWithDiscount,
+                  cart.currency
+                )}
+                variation={PriceDisplayTraitVariation.Medium}
+              />
+            }
+          />
 
-        <LargeButton role={ButtonRole.Primary} onClick={() => {
-            alert('As Samuel L.Jackson would say: "Pay motherfucker!"');
-        }}>
-          Checkout
-        </LargeButton>
+          <LargeButton
+            role={ButtonRole.Primary}
+            onClick={() => {
+              alert('As Samuel L.Jackson would say: "Pay motherfucker!"');
+            }}
+          >
+            Checkout
+          </LargeButton>
+        </div>
       </div>
     </div>
   );

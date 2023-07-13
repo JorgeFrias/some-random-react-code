@@ -36,7 +36,7 @@ const MainContainer: React.FC<Props> = ({
             </div>
           )}
         </div>
-        <div className="row m-0">
+        <div className="row m-0 h-100">
           <div className={`col-8 ${styles.primary_view}`}>{primaryView}</div>
           <div className={`col-4 ${styles.side_view}`}>{sideView}</div>
         </div>

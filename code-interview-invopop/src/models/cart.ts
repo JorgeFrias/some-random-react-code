@@ -7,12 +7,18 @@ import { Currency } from "./currency";
  */
 export class Cart {
   /** Items in the cart. */
-  items: ProductQuantity[] = [];
+  items: ProductQuantity[];
   /** Discounts that are potentially applicable to this user. */
-  applicableDiscounts: Discount[] = [];
+  applicableDiscounts: Discount[];
 
-  constructor(items: ProductQuantity[]) {
-    this.items = items;
+  constructor(products: Product[], applicableDiscounts: Discount[]) {
+    this.items = products.map((product) => {
+      return {
+        product: product,
+        quantity: 0,
+      };
+    });
+    this.applicableDiscounts = applicableDiscounts;
   }
 
   /**
