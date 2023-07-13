@@ -97,7 +97,12 @@ export class Cart {
   removeItem(product: Product, quantity: number = 1): Cart {
     const item = this.items.find((item) => item.product === product);
     if (item) {
-      item.quantity -= quantity;
+      // Guard against negative quantities
+      if (item.quantity - quantity < 0) {
+        item.quantity = 0;
+      } else {
+        item.quantity -= quantity;
+      }
     }
 
     return this;
@@ -112,7 +117,12 @@ export class Cart {
   updateItemQuantity(product: Product, quantity: number): Cart {
     const item = this.items.find((item) => item.product === product);
     if (item) {
-      item.quantity = quantity;
+      // Guard against negative quantities
+      if (quantity < 0) {
+        item.quantity = 0;
+      } else {
+        item.quantity = quantity;
+      }
     }
 
     return this;

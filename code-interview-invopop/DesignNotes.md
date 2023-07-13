@@ -3,6 +3,7 @@
 ## General Notes
 - I'm using `rem` units for the font sizes, so the design better adapts to different screen sizes (good practice). So I converted most `px` values to `rem` values assuming a base font size of 16px (1rem = 16px).
 - I decided to add Bootstrap to make the design responsive, as it's a good practice to use a framework for this purpose, and it's the one I'm most familiar with.
+- The preview images I downloaded from the Figma file already show the border and corner radius, I added the border on top that's why it looks weird (thick and fuzzy border), once you place the correct images it will look as expected.
 
 ## Buttons
 ### Large Button Component
@@ -17,5 +18,9 @@
 - The dividers are not consistent, I choose the one that uses opacity as can work better over different backgrounds.
 - Pricing. The design only considers whole numbers for the price, I added a decimal part to the price if the price provided has it, keeping exclusively the whole number for integer prices.
 
-## TODO
+## TODO/Improvements
 - It's missing the button on click effect.
+- Buttons the - button should be disabled when the quantity is 0.
+
+# Duhhhh things
+- All discounts should be computed on the server side, as they are business logic, and the client should only display the results. As well as prices, totals, etc...
