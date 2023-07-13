@@ -11,9 +11,14 @@
 
   p {
     color: $color-side-panel-body;
+    margin-bottom: 0;
   }
 
   .cartSummaryPrice p {
     color: $color-side-panel-body-numerals;
   }
+}
+
+.action_button {
+    margin-top: 1.5rem;
 }

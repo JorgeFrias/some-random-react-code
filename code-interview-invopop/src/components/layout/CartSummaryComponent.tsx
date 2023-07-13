@@ -35,10 +35,10 @@ const CartSummaryRowComponent: React.FC<CartSummaryRowProps> = ({
   return (
     <div>
       <div
-        className={`d-flex justify-content-between ${styles.cartSummaryRows}`}
+        className={`d-flex justify-content-between align-items-center ${styles.cartSummaryRows}`}
       >
         <div className="h-100 d-flex align-items-center">
-          <p className={styles.leading_text}>{leadingText}</p>
+          <p className={`${styles.leading_text}`}>{leadingText}</p>
         </div>
         <div
           className={`h-100 d-flex align-items-center justify-content-end ${styles.cartSummaryPrice}`}
@@ -119,11 +119,12 @@ const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
                   cart.totalWithDiscount,
                   cart.currency
                 )}
-                variation={PriceDisplayTraitVariation.Medium}
+                variation={PriceDisplayTraitVariation.Large}
               />
             }
           />
 
+        <div className={styles.action_button}>
           <LargeButton
             role={ButtonRole.Primary}
             onClick={() => {
@@ -132,6 +133,7 @@ const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
           >
             Checkout
           </LargeButton>
+        </div>
         </div>
       </div>
     </div>
