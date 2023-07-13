@@ -64,6 +64,11 @@ class DiscountBulkTShirt implements Discount {
     let totalDiscount = 0;
     for (let item of cartState) {
       if (item.product.getCode() === this.appliesToProductCode) {
+        // Guard item.quantity is greater than 3
+        if (item.quantity < 3) {
+          continue;
+        }
+        // Apply discount
         totalDiscount += item.product.getPrice() * item.quantity * 0.25;
       }
     }

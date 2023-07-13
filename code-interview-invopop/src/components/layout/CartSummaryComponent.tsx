@@ -58,6 +58,19 @@ interface CartProps {
  * Defines a row in the cart.
  */
 const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
+  const [total, setTotal] = useState("-");
+
+  // Reset total to "-" when cart changes.
+  useEffect(() => {
+    setTotal("-");
+  }, [cart]);
+
+  /** Callback to calculate the total price with discounts applied. */
+  const updateTotal = () => {
+    const newTotal = Product.formatPrice(cart.totalWithDiscount, cart.currency);
+    setTotal(newTotal);
+  };
+
   // TODO: This is a bit too large, break it down into smaller components.
   return (
     <div className="d-flex flex-column h-100">
@@ -115,25 +128,25 @@ const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
             leadingText={"Total"}
             trailingView={
               <PriceDisplayComponent
-                formattedPrice={Product.formatPrice(
-                  cart.totalWithDiscount,
-                  cart.currency
-                )}
+                formattedPrice={total}
                 variation={PriceDisplayTraitVariation.Large}
               />
             }
           />
 
-        <div className={styles.action_button}>
-          <LargeButton
-            role={ButtonRole.Primary}
-            onClick={() => {
-              alert('As Samuel L.Jackson would say: "Pay motherfucker!"');
-            }}
-          >
-            Checkout
-          </LargeButton>
-        </div>
+          <div className={styles.action_button}>
+            <LargeButton
+              role={ButtonRole.Primary}
+              onClick={() =>
+                // alert('As Samuel L.Jackson would say: "Pay motherfucker!"');
+                // On click show the formatted price on the line above?
+                // "The total amount (with discounts applied) should be calculated when the user pushes the Checkout button."
+                updateTotal()
+              }
+            >
+              Checkout
+            </LargeButton>
+          </div>
         </div>
       </div>
     </div>
