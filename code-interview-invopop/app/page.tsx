@@ -66,7 +66,7 @@ export default function Home() {
       <MainContainer
         primaryView={
           <div>
-            <HeadingComponent>Shirt</HeadingComponent>
+            <HeadingComponent>Your cart</HeadingComponent>
             <CartHeadingsComponent />
             <div>
               {cart.items.map((item) => (
