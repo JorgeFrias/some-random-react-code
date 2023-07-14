@@ -96,15 +96,14 @@ export default function Home() {
       />
 
       {/* Modal View - Product Detail */}
-      {isModalPresented && (
-        <div className="position-absolute top-0 start-0">
-          <ProductModalComponent
-            product={previewProduct}
-            onAddToCart={() => handleQuantityAdd(previewProduct)}
-            onClose={() => setIsModalPresented(false)}
-          />
-        </div>
-      )}
+      <div className="position-absolute top-0 start-0">
+        <ProductModalComponent
+          product={previewProduct}
+          onAddToCart={() => handleQuantityAdd(previewProduct)}
+          isModalPresented={isModalPresented}
+          onClose={() => setIsModalPresented(false)}
+        />
+      </div>
     </main>
   );
 }

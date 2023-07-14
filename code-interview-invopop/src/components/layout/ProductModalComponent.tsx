@@ -18,12 +18,27 @@ import { ButtonRole, LargeButton } from "../buttons/LargeButtonComponent";
 interface Props {
   product: Product;
   onAddToCart: () => void;
+  isModalPresented: boolean;
   onClose: () => void;
 }
 
-const ProductModalComponent: React.FC<Props> = ({ product, onAddToCart, onClose }) => {
+/**
+ * Modal component for displaying product details.
+ *
+ * The modal controls its own visibility with the `isModalPresented` prop.
+ */
+const ProductModalComponent: React.FC<Props> = ({
+  product,
+  onAddToCart,
+  isModalPresented,
+  onClose,
+}) => {
+  const presentedClass = isModalPresented ? "" : "d-none";
+
   return (
-    <div className="position-absolute top-0 start-0">
+    <div
+      className={`position-absolute top-0 start-0 ${presentedClass}`}
+    >
       <MainContainer
         primaryView={
           <div
@@ -39,9 +54,9 @@ const ProductModalComponent: React.FC<Props> = ({ product, onAddToCart, onClose 
         sideView={
           <div className="h-100 d-flex justify-content-center align-items-center">
             <div>
-              <HeadingComponent tag={
-                product.getFormattedPrice()
-              }>{product.getName()}</HeadingComponent>
+              <HeadingComponent tag={product.getFormattedPrice()}>
+                {product.getName()}
+              </HeadingComponent>
               <p className={styles.description}>{product.getDescription()}</p>
 
               <div className={styles.product_code}>
