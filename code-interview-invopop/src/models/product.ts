@@ -11,6 +11,7 @@ class Product {
   private price: number;
   private currency: Currency;
   private imagePath: string; // This should be a URL in a real project.
+  private description: string;
 
   /**
    * @param name Product name, e.g. "Black T-Shirt".
@@ -24,13 +25,15 @@ class Product {
     code: string,
     price: number,
     currency: Currency,
-    imagePath: string
+    imagePath: string,
+    description: string
   ) {
     this.name = name;
     this.code = code;
     this.price = price;
     this.currency = currency;
     this.imagePath = imagePath;
+    this.description = description;
   }
 
   // MARK: Getters
@@ -64,6 +67,12 @@ class Product {
    */
   getImageURL(): string {
     return this.imagePath;
+  }
+  /**
+   * Product description.
+   */
+  getDescription(): string {
+    return this.description;
   }
 
   // Setters are not needed, as the product is immutable.
@@ -115,7 +124,5 @@ interface ProductQuantity {
   quantity: number;
 }
 
-
-export { Product };  
+export { Product };
 export type { ProductQuantity };
-

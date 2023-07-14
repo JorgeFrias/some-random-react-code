@@ -100,6 +100,7 @@ export default function Home() {
         <div className="position-absolute top-0 start-0">
           <ProductModalComponent
             product={previewProduct}
+            onAddToCart={() => handleQuantityAdd(previewProduct)}
             onClose={() => setIsModalPresented(false)}
           />
         </div>

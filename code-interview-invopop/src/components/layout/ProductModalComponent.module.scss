@@ -1,5 +1,37 @@
+@import "../../styles/ColorPallete.module.scss";
+@import "../../styles/TextStyles.module.scss";
+
 .full_page_bg {
   background-position: center; /* Center the image */
   background-repeat: no-repeat; /* Do not repeat the image */
   background-size: cover; /* Resize the background image to cover the entire container */
 }
+
+.description {
+  // Layout
+  display: flex;
+  width: 248px;
+  flex-direction: column;
+  flex-shrink: 0;
+  // Typography
+  color: $color-body;
+  font-family: $font-family;
+  font-size: 0.813rem;
+  font-style: normal;
+  font-weight: 350;
+  line-height: 1.125rem;
+  letter-spacing: -0.008rem;
+}
+
+.product_code {
+    margin-top: 3rem;
+}
+
+.lowercase {
+  text-transform: none;
+}
+
+.action_button {
+    margin-top: 2.5rem;
+}
+
