@@ -21,6 +21,7 @@
 ## TODO/Improvements
 - It's missing the button on click effect.
 - Buttons the - button should be disabled when the quantity is 0.
+- Discount list on hover could show the discount description, nice touch.
 
 # Duhhhh things
 - All discounts should be computed on the server side, as they are business logic, and the client should only display the results. As well as prices, totals, etc...

@@ -24,38 +24,41 @@ const defaultCart = new Cart(
   discounts
 );
 
+// TODO: Move this view to a separate component, the page should only declare the use of this new component.
 export default function Home() {
   const [cart, setCart] = useState(defaultCart);
+  const [isModalPresented, setIsModalPresented] = useState(false);
 
   const handleQuantityAdd = (product: Product) => {
     const updatedCart = new Cart(
-      [ ...cart.items ],
-      [ ...cart.applicableDiscounts ]
-    );                            // Copy existing cart
+      [...cart.items],
+      [...cart.applicableDiscounts]
+    ); // Copy existing cart
     updatedCart.addItem(product); // Add item to cart
-    setCart(updatedCart);         // Update cart
+    setCart(updatedCart); // Update cart
   };
 
   const handleQuantitySubtract = (product: Product) => {
     const updatedCart = new Cart(
-      [ ...cart.items ],
-        [ ...cart.applicableDiscounts ]
-    );                               // Copy existing cart
+      [...cart.items],
+      [...cart.applicableDiscounts]
+    ); // Copy existing cart
     updatedCart.removeItem(product); // Remove item from cart
-    setCart(updatedCart);            // Update cart
+    setCart(updatedCart); // Update cart
   };
 
   const handleQuantityChange = (product: Product, quantity: number) => {
     const updatedCart = new Cart(
-      [ ...cart.items ],
-      [ ...cart.applicableDiscounts ]
-    );                               // Copy existing cart
+      [...cart.items],
+      [...cart.applicableDiscounts]
+    ); // Copy existing cart
     updatedCart.updateItemQuantity(product, quantity); // Update item in cart
-    setCart(updatedCart);            // Update cart
+    setCart(updatedCart); // Update cart
   };
 
   return (
     <main>
+      {/* Main View - Cart*/}
       <MainContainer
         primaryView={
           <div>
@@ -78,15 +81,26 @@ export default function Home() {
                   onQuantityChange={(quantity) =>
                     handleQuantityChange(item.product, quantity)
                   }
-                  onShowDetails={(product) => console.log(product)}
+                  onShowDetails={(product) => setIsModalPresented(true)}
                 />
               ))}
             </div>
           </div>
         }
-        sideView={<CartSummaryComponent cart={cart}/>}
+        sideView={<CartSummaryComponent cart={cart} />}
         sideViewClassName={cartSummaryStyles.cart_summary_background}
       />
+
+      {/* Modal View - Product Detail */}
+      {isModalPresented && (
+        <MainContainer
+          primaryView={<p>Helloooooo</p>}
+          sideView={<p>Side view</p>}
+          sideViewClassName={cartSummaryStyles.cart_summary_background}
+          hasCloseButton={true}
+          onClose={() => setIsModalPresented(false)}
+        />
+      )}
     </main>
   );
 }
