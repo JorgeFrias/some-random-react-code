@@ -85,7 +85,10 @@ export default function Home() {
                   onQuantityChange={(quantity) =>
                     handleQuantityChange(item.product, quantity)
                   }
-                  onShowDetails={(product) => setIsModalPresented(true)}
+                  onShowDetails={(product) => {
+                    setPreviewProduct(product)
+                    setIsModalPresented(true)
+                  }}
                 />
               ))}
             </div>
