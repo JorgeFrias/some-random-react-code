@@ -11,6 +11,7 @@ class Product {
   private price: number;
   private currency: Currency;
   private imagePath: string; // This should be a URL in a real project.
+  private imageFullSizePath: string; // This should be a URL in a real project.
   private description: string;
 
   /**
@@ -26,6 +27,7 @@ class Product {
     price: number,
     currency: Currency,
     imagePath: string,
+    imageFullSizePath: string,
     description: string
   ) {
     this.name = name;
@@ -33,6 +35,7 @@ class Product {
     this.price = price;
     this.currency = currency;
     this.imagePath = imagePath;
+    this.imageFullSizePath = imageFullSizePath;
     this.description = description;
   }
 
@@ -67,6 +70,12 @@ class Product {
    */
   getImageURL(): string {
     return this.imagePath;
+  }
+  /**
+   * Full sized image URL of the product.
+   */
+  getImageFullSizeURL(): string {
+    return this.imageFullSizePath;
   }
   /**
    * Product description.

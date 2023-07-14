@@ -30,7 +30,7 @@ const ProductModalComponent: React.FC<Props> = ({ product, onAddToCart, onClose 
             className={`h-100 ${styles.full_page_bg}`}
             style={{
               backgroundImage: `url("${product
-                .getImageURL()
+                .getImageFullSizeURL()
                 ?.toString()}")` as `url(${string})`,
             }}
           ></div>

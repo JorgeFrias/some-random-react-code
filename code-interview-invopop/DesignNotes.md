@@ -23,6 +23,8 @@
 - Buttons the - button should be disabled when the quantity is 0.
 - Discount list on hover could show the discount description, nice touch.
 - Feedback on the button. The modal when add to cart needs some feedback, the simplest one changing the text to "added to cart" is enough, a cool animation moving the product to the cart would be nice.
+- Animations: 1. modal appearance
+- 
 
 # Duhhhh things
 - All discounts should be computed on the server side, as they are business logic, and the client should only display the results. As well as prices, totals, etc...
