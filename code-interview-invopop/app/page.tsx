@@ -1,18 +1,21 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
+import Image from "next/image";
 import { MainContainer } from "@/components/layout/MainContainerComponent";
 import { HeadingComponent } from "@/components/textElements/HeadingComponent";
 import { CartRowComponent } from "@/components/customElements/CartRowComponent";
 import { CartHeadingsComponent } from "@/components/customElements/CartHeadingsComponent";
 import { CartSummaryComponent } from "@/components/layout/CartSummaryComponent";
 
+import "bootstrap/dist/css/bootstrap.min.css";
 import cartSummaryStyles from "@/components/layout/CartSummaryComponent.module.scss";
 
 import { Product } from "@/models/product";
 import { products } from "../data/products";
 import { discounts } from "../data/discounts";
 import { Cart } from "@/models/cart";
+import { ProductModalComponent } from "@/components/layout/ProductModalComponent";
 
 const defaultCart = new Cart(
   products.map((product) => {
@@ -28,6 +31,7 @@ const defaultCart = new Cart(
 export default function Home() {
   const [cart, setCart] = useState(defaultCart);
   const [isModalPresented, setIsModalPresented] = useState(false);
+  const [previewProduct, setPreviewProduct] = useState(products[0]);
 
   const handleQuantityAdd = (product: Product) => {
     const updatedCart = new Cart(
@@ -93,13 +97,12 @@ export default function Home() {
 
       {/* Modal View - Product Detail */}
       {isModalPresented && (
-        <MainContainer
-          primaryView={<p>Helloooooo</p>}
-          sideView={<p>Side view</p>}
-          sideViewClassName={cartSummaryStyles.cart_summary_background}
-          hasCloseButton={true}
-          onClose={() => setIsModalPresented(false)}
-        />
+        <div className="position-absolute top-0 start-0">
+          <ProductModalComponent
+            product={previewProduct}
+            onClose={() => setIsModalPresented(false)}
+          />
+        </div>
       )}
     </main>
   );
