@@ -26,6 +26,11 @@ interface Props {
  * Modal component for displaying product details.
  *
  * The modal controls its own visibility with the `isModalPresented` prop.
+ * 
+ * @param product The product to display.
+ * @param onAddToCart The callback to call when the user taps the "Add to cart" button.
+ * @param isModalPresented Whether the modal should be presented or not.
+ * @param onClose The callback to call when the user taps the close button.
  */
 const ProductModalComponent: React.FC<Props> = ({
   product,

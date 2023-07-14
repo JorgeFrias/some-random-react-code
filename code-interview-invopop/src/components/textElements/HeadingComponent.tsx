@@ -10,6 +10,9 @@ interface Props {
 
 /**
  * Defines a standard heading with a divider line underneath.
+ * 
+ * @param children The text to display in the heading.
+ * @param tag The tag to display next to the heading, if any.
  */
 const HeadingComponent: React.FC<Props> = ({ children, tag }) => {
   return (

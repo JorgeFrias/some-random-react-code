@@ -1,9 +1,8 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
+import React from "react";
 import styles from "./CartHeadingsComponent.module.scss";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { Product } from "@/models/product";
 
 import {
   SubheadingComponent,
@@ -11,7 +10,7 @@ import {
 } from "../textElements/SubHeadingComponent";
 
 /**
- * Defines a row in the cart.
+ * Defines the headings for each of the columns in the cart.
  */
 const CartHeadingsComponent: React.FC = ({}) => {
   return (

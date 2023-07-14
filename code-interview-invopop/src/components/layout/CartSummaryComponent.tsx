@@ -55,7 +55,9 @@ interface CartProps {
 }
 
 /**
- * Defines a row in the cart.
+ * Defines the resume view where the user can see the total price and the discounts applied.
+ * 
+ * @param cart The cart instance that contains the items and the discounts.
  */
 const CartSummaryComponent: React.FC<CartProps> = ({ cart }) => {
   const [total, setTotal] = useState("-");
